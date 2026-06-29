@@ -271,6 +271,17 @@
 
 ### Pendientes
 
-* Ejecutar validacion local en `C:\tmp\TABLERO_DNCP_VF_repo`.
-* Hacer commit y push a `sanzelias/TABLERO_DNCP_VF`.
+* Forzar `Reboot app` o redeploy manual desde Streamlit Cloud.
 * Verificar que `https://tablero-dashboard-dncp.streamlit.app/` muestre `Panel de filtros` y version `2026.06.29-ux`.
+
+### Publicacion y verificacion posterior al push
+
+* Commit publicado en `sanzelias/TABLERO_DNCP_VF`: `05fb21c feat: redesign deployed Streamlit dashboard UX`.
+* GitHub raw verificado: `dashboard.py` contiene `APP_VERSION = "2026.06.29-ux"`, `Panel de filtros` y `Observatorio de Contrataciones Publicas de Paraguay`.
+* Validacion local desde `C:\tmp\TABLERO_DNCP_VF_repo`:
+  * compilacion Python OK;
+  * 14 Parquet cargados OK;
+  * render Streamlit local OK en `http://127.0.0.1:8509/`;
+  * prueba de filtro `Entidad contiene = IPS` OK.
+* Verificacion publica posterior al push: la URL `https://tablero-dashboard-dncp.streamlit.app/` continuo mostrando la version anterior.
+* Diagnostico: codigo correcto publicado en el repositorio fuente real; Streamlit Cloud no redeployo/reinicio el runtime publico todavia.
